@@ -2,7 +2,6 @@ import streamlit as st
 from pathlib import Path
 import base64
 
-# Configuration session
 if "logged_in" not in st.session_state:
     st.session_state.logged_in = False
 if "current_page" not in st.session_state:
@@ -10,7 +9,7 @@ if "current_page" not in st.session_state:
 
 USERS = {"sarra.hajjeji37@gmail.com": "sarra12/12/2003"}
 
-# Encodage logo
+
 def get_base64(path):
     with open(path, "rb") as f:
         return base64.b64encode(f.read()).decode()
@@ -18,7 +17,6 @@ def get_base64(path):
 LOGO_PATH = "logo_kroschu.png"
 logo_b64 = get_base64(LOGO_PATH) if Path(LOGO_PATH).exists() else ""
 
-# Configuration page
 st.set_page_config(
     page_title="KROSCHU BI",
     page_icon="📊",
@@ -26,7 +24,7 @@ st.set_page_config(
     initial_sidebar_state="collapsed"
 )
 
-# Styles CSS
+
 st.markdown(f"""
 <style>
 #MainMenu, header, footer {{visibility: hidden;}}
@@ -110,7 +108,7 @@ st.markdown(f"""
 </style>
 """, unsafe_allow_html=True)
 
-# Page de login
+
 if not st.session_state.logged_in:
     st.markdown("""
     <div class="login-container">
@@ -130,7 +128,7 @@ if not st.session_state.logged_in:
     st.markdown("</div>", unsafe_allow_html=True)
     st.stop()
 
-# Application principale
+
 with st.sidebar:
     st.markdown("## Navigation")
     
@@ -149,7 +147,6 @@ with st.sidebar:
         st.session_state.logged_in = False
         st.rerun()
 
-# Gestion des pages
 if st.session_state.current_page == "Dashboard":
     st.markdown("<div style='text-align:center; color:#6A0DAD; font-size:1.8rem; margin:2rem 0;'>Tableau de bord</div>", unsafe_allow_html=True)
     st.write("""
@@ -182,7 +179,7 @@ elif st.session_state.current_page == "Changer mot de passe":
                 st.session_state.current_page = "Dashboard"
                 st.rerun()
 
-# Footer
+
 st.markdown("""
 <div class='footer'>
     © 2025 KROSCHU BI - Tous droits réservés
