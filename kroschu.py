@@ -159,7 +159,6 @@ if st.session_state.current_page == "Dashboard":
 elif st.session_state.current_page == "Prédictions":
     st.markdown("<div style='text-align:center; color:#6A0DAD; font-size:1.8rem; margin:2rem 0;'>Prévisions du profit </div>", unsafe_allow_html=True)
     st.image("70.png" if Path("70.png").exists() else "https://via.placeholder.com/800x400", use_container_width=True)
-    st.image("75.png" if Path("75.png").exists() else "https://via.placeholder.com/800x400", use_container_width=True)
 
 elif st.session_state.current_page == "Changer mot de passe":
     st.markdown("<div style='text-align:center; color:#6A0DAD; font-size:1.8rem; margin:2rem 0;'>Changer mot de passe</div>", unsafe_allow_html=True)
